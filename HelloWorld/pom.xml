@@ -21,7 +21,7 @@
   <parent>
     <groupId>com.oracle.soa</groupId>
     <artifactId>sar-common</artifactId>
-    <version>12.2.1-0-0</version>
+    <version>12.2.1-1-0</version>
     <relativePath></relativePath>
   </parent>
   <properties>
@@ -98,7 +98,7 @@
       <plugin>
         <groupId>com.oracle.soa.plugin</groupId>
         <artifactId>oracle-soa-plugin</artifactId>
-        <version>12.2.1-0-0</version>
+        <version>12.2.1-1-0</version>
         <configuration>
           <compositeName>
             ${project.artifactId}
