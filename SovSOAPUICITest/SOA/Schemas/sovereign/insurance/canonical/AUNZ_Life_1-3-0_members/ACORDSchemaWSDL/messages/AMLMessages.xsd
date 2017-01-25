@@ -1,0 +1,210 @@
+<!--
+   ====================================================================== 
+   ===== Process Domain Schema Module ===== 
+   NON NORMATIVE EXAMPLE PROVIDED FOR ACORD NDR ILLUSTRATION - ->
+    ====================================================================== 
+   
+      Standard Organization: ACORD
+      Version: 1.3.0 
+      Generated on: 15/4/16
+   
+     COPYRIGHT NOTICE:
+     
+(c) 2014 ACORD. All Rights Reserved.
+
+Use of this Schema and its documentation are covered by the terms and conditions file that was included in the distribution file that you found this Schema.http://www.ACORD.org
+
+-->
+
+<!-- 
+Sovereign Revision History 
+==========================
+
+Rev No.     Date            Who                               Purpose
+==========================================================================================================================================
+1.3.1       10-NOV-2016     Daryl Budd (Deloitte-Asparona)    Quick quote implementation project, add additional elements.
+															  															                                                              
+
+
+-->
+<xsd:schema targetNamespace="http://www.acord.org/schema/data/draft/ReusableDataComponents/1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:acord-doc="http://www.acord.org/schema/documentation/draft/Annotations/1" xmlns="http://www.acord.org/schema/data/draft/ReusableDataComponents/1">
+   <xsd:annotation>
+      <xsd:appinfo>
+         <acord-doc:GenerationDateTime>4/4/2016</acord-doc:GenerationDateTime>
+      </xsd:appinfo>
+   </xsd:annotation>
+   <xsd:include schemaLocation="../data/ReusableDataComponents.xsd"/>
+
+   <xsd:element name="PolicyEndorsementOrderNotify" type="PolicyEndorsementOrderNotify_Type"/>
+   <xsd:complexType name="PolicyEndorsementOrderNotify_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessage_Type">
+            <xsd:sequence>
+
+               <xsd:element ref="PolicyOrder" minOccurs="1" maxOccurs="unbounded"/>
+
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:element name="PolicyEndorsementOrderProcess" type="PolicyEndorsementOrderProcess_Type"/>
+   <xsd:complexType name="PolicyEndorsementOrderProcess_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessage_Type">
+            <xsd:sequence>
+
+               <xsd:element ref="PolicyOrder" minOccurs="1" maxOccurs="1"/>
+
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:element name="PolicyEndorsementOrderProcessResult" type="PolicyEndorsementOrderProcessResult_Type"/>
+   <xsd:complexType name="PolicyEndorsementOrderProcessResult_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessageResult_Type">
+            <xsd:sequence>
+
+               <xsd:element ref="PolicyOrder" minOccurs="0" maxOccurs="1"/>
+
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:element name="PolicyNewBusinessOrderNotify" type="PolicyNewBusinessOrderNotify_Type"/>
+   <xsd:complexType name="PolicyNewBusinessOrderNotify_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessage_Type">
+            <xsd:sequence>
+
+               <xsd:element ref="PolicyOrder" minOccurs="1" maxOccurs="unbounded"/>
+
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:element name="PolicyNewBusinessOrderProcess" type="PolicyNewBusinessOrderProcess_Type"/>
+   <xsd:complexType name="PolicyNewBusinessOrderProcess_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessage_Type">
+            <xsd:sequence>
+
+               <xsd:element ref="PolicyOrder" minOccurs="1" maxOccurs="1"/>
+
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:element name="PolicyNewBusinessOrderProcessResult" type="PolicyNewBusinessOrderProcessResult_Type"/>
+   <xsd:complexType name="PolicyNewBusinessOrderProcessResult_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessageResult_Type">
+            <xsd:sequence>
+
+               <xsd:element ref="PolicyOrder" minOccurs="0" maxOccurs="1"/>
+
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:element name="PolicySynchronizationProcess" type="PolicySynchronizationProcess_Type"/>
+   <xsd:complexType name="PolicySynchronizationProcess_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessage_Type">
+            <xsd:sequence>
+
+               <xsd:element ref="PolicySynchronization" minOccurs="1" maxOccurs="unbounded"/>
+
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:element name="PolicySynchronizationProcessResult" type="PolicySynchronizationProcessResult_Type"/>
+   <xsd:complexType name="PolicySynchronizationProcessResult_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessageResult_Type">
+            <xsd:sequence>
+
+               <xsd:element ref="PolicySynchronization" minOccurs="0" maxOccurs="unbounded"/>
+
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:element name="ClaimLodgementProcess" type="ClaimLodgementProcess_Type"/>
+   <xsd:complexType name="ClaimLodgementProcess_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessage_Type">
+            <xsd:sequence>
+
+               <xsd:element ref="ClaimLodgement" minOccurs="1" maxOccurs="unbounded"/>
+
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:element name="ClaimLodgementProcessResult" type="ClaimLodgementProcessResult_Type"/>
+   <xsd:complexType name="ClaimLodgementProcessResult_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessageResult_Type">
+            <xsd:sequence>
+
+               <xsd:element ref="ClaimLodgement" minOccurs="0" maxOccurs="unbounded"/>
+
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:element name="InvestmentCorrespondenceNotify" type="InvestmentCorrespondenceNotify_Type"/>
+   <xsd:complexType name="InvestmentCorrespondenceNotify_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessage_Type">
+            <xsd:sequence>
+
+               <xsd:element ref="InvestmentCorrespondence" minOccurs="1" maxOccurs="unbounded"/>
+
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:element name="InvestmentInquiryNotify" type="InvestmentInquiryNotify_Type"/>
+   <xsd:complexType name="InvestmentInquiryNotify_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessage_Type">
+            <xsd:sequence>
+
+               <xsd:element ref="InvestmentInquiry" minOccurs="1" maxOccurs="unbounded"/>
+
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:element name="InvestmentInquiryProcess" type="InvestmentInquiryProcess_Type"/>
+   <xsd:complexType name="InvestmentInquiryProcess_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessage_Type">
+            <xsd:sequence>
+               <xsd:element ref="InvestmentInquiry" minOccurs="0" maxOccurs="unbounded"/> <!-- Sovereign modification 10-NOV-2016 changed minOccurs from 1 to 0 -->
+               <!-- Sovereign Modification Start 10-NOV-2016-->   
+               <xsd:element ref="GetQuoteInformation" minOccurs="1" maxOccurs="1"/>
+               <!-- Sovereign Modification End 10-NOV-2016-->   
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>
+   <xsd:element name="InvestmentInquiryProcessResult" type="InvestmentInquiryProcessResult_Type"/>
+   <xsd:complexType name="InvestmentInquiryProcessResult_Type">
+      <xsd:complexContent>
+         <xsd:extension base="ACORDMessageResult_Type">
+            <xsd:sequence>
+
+               <xsd:element ref="InvestmentInquiry" minOccurs="0" maxOccurs="unbounded"/> 
+               <!-- Sovereign Modification Start 10-NOV-2016-->   
+               <xsd:element ref="GetQuoteInformationResponse" minOccurs="1" maxOccurs="1"/>
+               <!-- Sovereign Modification End 10-NOV-2016--> 
+
+            </xsd:sequence>
+         </xsd:extension>
+      </xsd:complexContent>
+   </xsd:complexType>   
+</xsd:schema>

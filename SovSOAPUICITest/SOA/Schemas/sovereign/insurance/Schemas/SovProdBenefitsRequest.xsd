@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?><xsd:schema xmlns="http://www.sovereign.co.nz/acquire/quotedetails/ProductBenefitRequest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.sovereign.co.nz/acquire/quotedetails/ProductBenefitRequest">
+   <xsd:element name="ProdBenefitRequest">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="ProductType" type="xsd:string"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+</xsd:schema>

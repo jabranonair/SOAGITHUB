@@ -1,0 +1,116 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Mon Jan 23 10:49:01 NZDT 2017
+  Author:  dabudd
+  Type: BPEL 2.0 Process
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="BPELSovSOAPUICITest"
+               targetNamespace="http://sovereign.com/SovSOAPUICITest/SovSOAPUICITest/BPELSovSOAPUICITest"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://sovereign.com/SovSOAPUICITest/SovSOAPUICITest/BPELSovSOAPUICITest"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:ui="http://xmlns.oracle.com/soa/designer"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+         xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ns1="http://www.acord.org/schema/data/draft/ReusableDataComponents/1"
+         xmlns:oraext="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.ExtFunc"
+         xmlns:bpm="http://xmlns.oracle.com/bpmn20/extensions"
+         xmlns:xp20="http://www.oracle.com/XSL/Transform/java/oracle.tip.pc.services.functions.Xpath20"
+         xmlns:ess="http://xmlns.oracle.com/scheduler" xmlns:hwf="http://xmlns.oracle.com/bpel/workflow/xpath"
+         xmlns:xref="http://www.oracle.com/XSL/Transform/java/oracle.tip.xref.xpath.XRefXPathFunctions"
+         xmlns:dvm="http://www.oracle.com/XSL/Transform/java/oracle.tip.dvm.LookupValue"
+         xmlns:bpws="http://schemas.xmlsoap.org/ws/2003/03/business-process/"
+         xmlns:xdk="http://schemas.oracle.com/bpel/extension/xpath/function/xdk"
+         xmlns:ids="http://xmlns.oracle.com/bpel/services/IdentityService/xpath"
+         xmlns:ldap="http://schemas.oracle.com/xpath/extension/ldap">
+
+    <import ui:processWSDL="true" namespace="http://sovereign.com/SovSOAPUICITest/SovSOAPUICITest/BPELSovSOAPUICITest" location="../WSDLs/BPELSovSOAPUICITest.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <!-- 
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        PARTNERLINKS                                                      
+        List of services participating in this BPEL process               
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    --> 
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="bpelsovsoapuicitest_client" partnerLinkType="client:BPELSovSOAPUICITest" myRole="BPELSovSOAPUICITestProvider"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="client:BPELSovSOAPUICITestRequestMessage"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="client:BPELSovSOAPUICITestResponseMessage"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in BPELSovSOAPUICITest.wsdl) -->
+    <receive name="receiveInput" partnerLink="bpelsovsoapuicitest_client" portType="client:BPELSovSOAPUICITest" operation="process" variable="inputVariable" createInstance="yes"/>
+    <if name="If_Correct_Product_Name">
+      <condition expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$inputVariable.payload/ns1:GetQuoteInformation/ns1:Life/ns1:InvestmentAccount/ns1:PolicyQuickQuote/ns1:LifeSection/ns1:TypeCode = 'TotalCare Max Personal'</condition><sequence name="Sequence1"><assign name="AssignSetResponse"
+                                                               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable">
+      
+      
+      
+      
+   <copy>
+         <from>$inputVariable.payload/ns1:MessageHeader</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns1:MessageHeader</to>
+      </copy><copy>
+         <from>'Success'</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns1:MessageResult/ns1:MessageDocumentResult/ns1:StatusCode</to>
+      </copy><copy>
+            <from>'Successful'</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns1:MessageResult/ns1:MessageDocumentResult/ns1:Description</to>
+          </copy><copy>
+         <from>$inputVariable.payload/ns1:GetQuoteInformation</from>
+         <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns1:GetQuoteInformationResponse</to>
+      </copy></assign></sequence><else>
+        <assign name="AssignSetResponseFail">
+          <copy>
+            <from>$inputVariable.payload/ns1:MessageHeader</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns1:MessageHeader</to>
+          </copy>
+          <copy>
+            <from>concat('Product "', $inputVariable.payload/ns1:GetQuoteInformation/ns1:Life/ns1:InvestmentAccount/ns1:PolicyQuickQuote/ns1:LifeSection/ns1:TypeCode, '" in request does not exist in ProductBenefit validation business rule.')</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns1:MessageResult/ns1:MessageDocumentResult/ns1:Description</to>
+          </copy>
+          <copy>
+            <from>'Rejected'</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns1:MessageResult/ns1:MessageDocumentResult/ns1:StatusCode</to>
+          </copy>
+          <copy>
+            <from>$inputVariable.payload/ns1:GetQuoteInformation</from>
+            <to expressionLanguage="urn:oasis:names:tc:wsbpel:2.0:sublang:xpath1.0">$outputVariable.payload/ns1:GetQuoteInformationResponse</to>
+          </copy>
+        </assign>
+      </else>
+    </if>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="bpelsovsoapuicitest_client" portType="client:BPELSovSOAPUICITest" operation="process" variable="outputVariable"/>
+  </sequence>
+</process>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?><xsd:schema xmlns="http://www.sovereign.co.nz/acquire/quotedetails/QuoteRequest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.sovereign.co.nz/acquire/quotedetails/QuoteRequest">
+   <xsd:element name="QuoteRequest">
+      <xsd:complexType>
+         <xsd:sequence>
+            <xsd:element name="ProductType" type="xsd:string"/>
+            <xsd:element name="BenefitType" type="xsd:string"/>
+            <xsd:element name="FirstName" type="xsd:string"/>
+            <xsd:element name="SurName" type="xsd:string"/>
+            <xsd:element name="Gender" type="xsd:string"/>
+            <xsd:element name="DateofBirth" type="xsd:date"/>
+            <xsd:element name="Age" type="xsd:int"/>
+            <xsd:element name="SmokerStatus" type="xsd:string"/>
+            <xsd:element name="SumAssured" type="xsd:double"/>
+            <xsd:element name="OccupationClass" type="xsd:string"/>
+            <xsd:element name="SelfEmployed" type="xsd:string"/>
+            <xsd:element name="SelfEmployed3Years" type="xsd:string"/>
+            <xsd:element name="BusinessOwner" type="xsd:string"/>
+            <xsd:element name="Indexed" type="xsd:string"/>
+            <xsd:element name="PremiumOption" type="xsd:string"/>
+            <xsd:element name="Loading" type="xsd:double"/>
+            <xsd:element name="PerMille" type="xsd:double"/>
+            <xsd:element name="LoadingTerm" type="xsd:double"/>
+            <xsd:element name="CommFactor" type="xsd:double"/>
+            <xsd:element name="MortMilleCharge" type="xsd:double"/>
+            <xsd:element name="LABLivingBuybackDisc" type="xsd:double"/>
+         </xsd:sequence>
+      </xsd:complexType>
+   </xsd:element>
+</xsd:schema>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.sovereign.co.nz/acquire/quotedetails/CalculatePremiumResponse"
+     xmlns="http://www.sovereign.co.nz/acquire/quotedetails/CalculatePremiumResponse" elementFormDefault="qualified">
+    <xsd:element name="CalculatePremiumResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="PremiumAmount" type="xsd:double"/>
+                <xsd:element name="StatusCode" type="xsd:string"/>
+                <xsd:element name="StatusMessage" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
