@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>HelloWorld</groupId>
+
+  <artifactId>HelloWorld</artifactId>
+
+  <version>1.0-SNAPSHOT</version>
+
+  <description>Super POM for HelloWorld</description>
+
+  <packaging>pom</packaging>
+
+  <build>
+
+    <resources>
+
+      <resource>
+
+        <directory>src/</directory>
+
+        <includes>
+
+          <include>**</include>
+
+        </includes>
+
+      </resource>
+
+    </resources>
+
+  </build>
+
+  <parent>
+
+    <groupId>com.oracle.adf</groupId>
+
+    <artifactId>adf-parent</artifactId>
+
+    <version>12.2.1-1-0</version>
+
+    <relativePath></relativePath>
+
+  </parent>
+
+  
+
+  <dependencies>
+
+    <dependency>
+
+      <groupId>HelloWorld</groupId>
+
+      <artifactId>HelloWorld</artifactId>
+
+      <version>1.0-SNAPSHOT</version>
+
+      <type>sar</type>
+
+    </dependency>
+
+  </dependencies>
+
+</project>
