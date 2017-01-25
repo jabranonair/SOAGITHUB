@@ -77,7 +77,7 @@
       default
     </composite.partition>
     <serverUrl>
-      <!--${oracleServerUrl}-->
+     ${oracleServerUrl}
     </serverUrl>
     <user>
       ${oracleUsername}
