@@ -36,6 +36,12 @@
     <layout>default</layout>
   </repository>
 </repositories>
+         <pluginRepositories>
+                  <pluginRepository>
+                           <id>maven.oracle.com</id>
+                           <url>https://maven.oracle.com</url>
+                  </pluginRepository>
+</pluginRepositories>
          
   <properties>
     <!-- These parameters are used by the compile goal -->
