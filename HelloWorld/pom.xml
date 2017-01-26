@@ -101,13 +101,13 @@
          if you are using the sca-test (test) goal, you need to uncomment the following
              line and point it to your jndi.properties file. -->
     <!--<jndi.properties.input>UNDEFINED</jndi.properties.input>-->
-    <scatest.result>
+    <!--<scatest.result>
       ${scac.output.dir}/testResult
-    </scatest.result>
+    </scatest.result>-->
     <!--  input is the name of the composite to run test suties against -->
-    <input>
+    <!--<input>
       ${project.artifactId}
-    </input>
+    </input>-->
     <!--<scac.ant.buildfile>${env.MW_HOME}/soa/bin/ant-sca-compile.xml</scac.ant.buildfile>
         <sca.ant.testfile>${env.MW_HOME}/soa/bin/ant-sca-test.xml</sca.ant.testfile>
         -->
