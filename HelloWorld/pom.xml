@@ -126,7 +126,7 @@
             ${scac.input}
           </composite>
           <sarLocation>
-            ${scac.output.dir}/sca_${project.artifactId}_rev${version}.jar
+            ${scac.output.dir}/sca_${project.artifactId}_rev${composite.revision}.jar
           </sarLocation>
           <serverUrl>
             ${serverUrl}
