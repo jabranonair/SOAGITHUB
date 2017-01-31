@@ -154,6 +154,26 @@
         <!-- extensions=true is needed to use the custom sar packaging type -->
         <extensions>true</extensions>
       </plugin>
+             <plugin>
+    <groupId>com.google.code.maven-replacer-plugin</groupId>
+    <artifactId>replacer</artifactId>
+    <version>1.5.3</version>
+    <executions>
+        <execution>
+            <phase>initialize</phase>
+            <goals>
+                <goal>replace</goal>
+            </goals>                   
+        </execution>
+    </executions>
+    <configuration>
+        <ignoreMissingFile>true</ignoreMissingFile>
+        <file>${scac.input}</file>
+        <xpath>//composite/@revision</xpath>
+        <token>^.*$</token>
+        <value>${composite.revision}</value>
+    </configuration>
+</plugin>
     </plugins>
   </build>
 </project>
